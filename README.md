@@ -1,4 +1,4 @@
-# kubewatcher-charts
+# KubeWatcher charts
 
 The Helm chart of the [KubeWatcher](https://kubewatcher.com) agent, and nothing else. The agent runs in your cluster, watches it read-only and streams what it sees to KubeWatcher over an outbound mTLS connection. Its source code is not in this repository: the agent is a closed-source image (`docker.io/aaraz/kubewatcher-cluster-agent`) and this repository holds only the chart that installs it.
 
@@ -27,13 +27,13 @@ helm upgrade kubewatcher-agent oci://registry-1.docker.io/aaraz/cluster-agent --
 
 ## What changed
 
-- Every release has a page under [Releases](https://github.com/anisharaz/kubewatcher-charts/releases) with its notes, and a compare link between it and the release before it.
+- Every release has a page under [Releases](https://github.com/kubewatcher/charts/releases) with its notes, and a compare link between it and the release before it.
 - `CHANGELOG.md` lists the same notes in one file.
 - `releases.json` is the machine-readable list (version, date, severity, whether the Kubernetes permissions changed, a summary and the links). KubeWatcher reads it to tell you when a new version is out. Its format is `releases.schema.json`.
 
 ## Updates by email
 
-On GitHub, choose Watch, then Custom, then Releases. Or follow the Atom feed at `https://github.com/anisharaz/kubewatcher-charts/releases.atom` in a feed reader.
+On GitHub, choose Watch, then Custom, then Releases. Or follow the Atom feed at `https://github.com/kubewatcher/charts/releases.atom` in a feed reader.
 
 ## Support
 

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/anisharaz/kubewatcher-charts/releases.schema.json",
+  "$id": "https://github.com/kubewatcher/charts/releases.schema.json",
   "title": "KubeWatcher agent releases",
   "description": "The list of agent chart releases that KubeWatcher reads. At most 200 releases and 256 KiB. Versions must also be unique (check-releases.sh checks it).",
   "type": "object",
