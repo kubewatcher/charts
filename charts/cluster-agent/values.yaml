@@ -16,7 +16,7 @@ enrollmentTokenSecret: ""
 imagePullSecrets: []   # - name: kubewatcher-registry
 
 image:
-  repository: docker.io/aaraz/kubewatcher-cluster-agent   # Docker Hub
+  repository: docker.io/kubewatcher/cluster-agent   # Docker Hub
   tag: ""        # defaults to the chart appVersion
   pullPolicy: Always
 

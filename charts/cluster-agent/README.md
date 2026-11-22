@@ -4,12 +4,12 @@ Installs the KubeWatcher agent: it watches the cluster **read-only**, streams si
 outbound mTLS gRPC connection, and runs signed, typed tasks.
 
 ```bash
-helm install kubewatcher-agent oci://registry-1.docker.io/aaraz/cluster-agent --version 0.2.0 \
+helm install kubewatcher-agent oci://registry-1.docker.io/kubewatcher/cluster-agent-chart --version 0.2.1 \
   -n kubewatcher-system --create-namespace \
   -f https://kubewatcher.com/v1/enroll/<single-use token from the dashboard>/values.yaml
 ```
 
-The dashboard prints this command with the link filled in. The link serves `clusterName`, `backendAddr`, `enrollmentToken` and `backendCA` (the CA that signed the gateway's certificate) as a values file, so you can also write them yourself with `--set` and `--set-literal`. The image is `docker.io/aaraz/kubewatcher-cluster-agent` at the chart's `appVersion` (override with `image.*`; private registries use `imagePullSecrets`). The enrollment token is single use. After the agent enrolls, its identity lives in the `kubewatcher-agent-identity` Secret in
+The dashboard prints this command with the link filled in. The link serves `clusterName`, `backendAddr`, `enrollmentToken` and `backendCA` (the CA that signed the gateway's certificate) as a values file, so you can also write them yourself with `--set` and `--set-literal`. The image is `docker.io/kubewatcher/cluster-agent` at the chart's `appVersion` (override with `image.*`; private registries use `imagePullSecrets`). The enrollment token is single use. After the agent enrolls, its identity lives in the `kubewatcher-agent-identity` Secret in
 its own namespace and the token is no longer needed (you can remove it from your values).
 
 ## Permissions
@@ -55,7 +55,7 @@ and the previous protocol version. Upgrade the agent within one protocol version
 is refused with a message telling you to upgrade.
 
 ```bash
-helm upgrade kubewatcher-agent oci://registry-1.docker.io/aaraz/cluster-agent --version <new> -n kubewatcher-system --reset-then-reuse-values
+helm upgrade kubewatcher-agent oci://registry-1.docker.io/kubewatcher/cluster-agent-chart --version <new> -n kubewatcher-system --reset-then-reuse-values
 ```
 
 Use `--reset-then-reuse-values` (Helm 3.14 or newer, and Helm 4): it applies the new chart's defaults and keeps the settings you set yourself. Plain `--reuse-values` fails when the new chart adds a setting. With an older Helm, use `--reset-values` and repeat your own `--set` options.

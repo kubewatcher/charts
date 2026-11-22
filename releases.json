@@ -2,6 +2,15 @@
   "schema_version": 1,
   "releases": [
     {
+      "version": "0.2.1",
+      "released_at": "2026-11-22T13:19:20Z",
+      "severity": "normal",
+      "rbac_changed": false,
+      "summary": "The agent image and chart now live in the kubewatcher organization on Docker Hub; the chart is renamed cluster-agent-chart. The agent itself is unchanged.",
+      "notes_url": "https://github.com/kubewatcher/charts/releases/tag/v0.2.1",
+      "compare_url": "https://github.com/kubewatcher/charts/compare/v0.2.0...v0.2.1"
+    },
+    {
       "version": "0.2.0",
       "released_at": "2026-11-21T09:29:56Z",
       "severity": "normal",
