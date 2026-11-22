@@ -7,7 +7,7 @@ Please do not open a public issue for a vulnerability. Use this repository's pri
 ## In scope
 
 - The chart in `charts/cluster-agent/`: the roles and bindings it creates, the Pod it runs, its network policy, its Secrets and the way it handles your enrollment token.
-- The agent image that the chart installs (`docker.io/aaraz/kubewatcher-cluster-agent`) and the connection it makes to KubeWatcher.
+- The agent image that the chart installs (`docker.io/kubewatcher/cluster-agent`) and the connection it makes to KubeWatcher.
 - The release files in this repository (`releases.json`).
 
 ## Read-only by default

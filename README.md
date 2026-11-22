@@ -1,15 +1,15 @@
 # KubeWatcher charts
 
-The Helm chart of the [KubeWatcher](https://kubewatcher.com) agent, and nothing else. The agent runs in your cluster, watches it read-only and streams what it sees to KubeWatcher over an outbound mTLS connection. Its source code is not in this repository: the agent is a closed-source image (`docker.io/aaraz/kubewatcher-cluster-agent`) and this repository holds only the chart that installs it.
+The Helm chart of the [KubeWatcher](https://kubewatcher.com) agent, and nothing else. The agent runs in your cluster, watches it read-only and streams what it sees to KubeWatcher over an outbound mTLS connection. Its source code is not in this repository: the agent is a closed-source image (`docker.io/kubewatcher/cluster-agent`) and this repository holds only the chart that installs it.
 
-The chart is published as an OCI chart at `oci://registry-1.docker.io/aaraz/cluster-agent`. `charts/cluster-agent/` here is the same chart, so you can read exactly what it installs (its Deployment, its Roles and its network policy) before you run it.
+The chart is published as an OCI chart at `oci://registry-1.docker.io/kubewatcher/cluster-agent-chart`. `charts/cluster-agent/` here is the same chart, so you can read exactly what it installs (its Deployment, its Roles and its network policy) before you run it.
 
 ## Install
 
 Add a cluster in the KubeWatcher dashboard. It shows the install command with your single-use enrollment token already filled in. The shape of it is:
 
 ```bash
-helm install kubewatcher-agent oci://registry-1.docker.io/aaraz/cluster-agent --version <version> \
+helm install kubewatcher-agent oci://registry-1.docker.io/kubewatcher/cluster-agent-chart --version <version> \
   --namespace kubewatcher-system --create-namespace \
   -f https://<your KubeWatcher address>/v1/enroll/<token>/values.yaml
 ```
@@ -19,7 +19,7 @@ The values file served by that link carries the cluster name, the gateway addres
 ## Upgrade
 
 ```bash
-helm upgrade kubewatcher-agent oci://registry-1.docker.io/aaraz/cluster-agent --version <version> \
+helm upgrade kubewatcher-agent oci://registry-1.docker.io/kubewatcher/cluster-agent-chart --version <version> \
   --namespace kubewatcher-system --reset-then-reuse-values
 ```
 
